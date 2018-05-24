@@ -2,6 +2,11 @@ package com.venom.tipcalculator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+//import com.venom.tipcalculator.R;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -9,6 +14,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
+        Spinner numberOfPPL1 = (Spinner) findViewById(R.id.Spinner01);
+        ArrayList<String> list  = new ArrayList<String>();
+        for (int i = 1; i<11; i++){
+            list.add(Integer.toString(i));
+        }
+        ArrayAdapter<CharSequence> numberOfPPL = new ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item,
+                list);
+        numberOfPPL.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        numberOfPPL1.setAdapter(numberOfPPL);
+    }
 }
