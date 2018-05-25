@@ -15,10 +15,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Spinner numberOfPPL1 = (Spinner) findViewById(R.id.Spinner01);
+        Spinner numberOfPPL1 = (Spinner) findViewById(R.id.numberOfPplSpinner);
         ArrayList<String> list  = new ArrayList<String>();
-        for (int i = 1; i<11; i++){
-            list.add(Integer.toString(i));
+            list.add("1 Person");
+        for (int i = 2; i<11; i++){
+            list.add(Integer.toString(i)+" People");
         }
         ArrayAdapter<CharSequence> numberOfPPL = new ArrayAdapter(
                 this,

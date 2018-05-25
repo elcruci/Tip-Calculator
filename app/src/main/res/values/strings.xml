@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name"></string>
+    <string name="app_name">Tip Calculator</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="title_activity_summary">SummaryActivity</string>
     <string name="title_activity_suggestion">SuggestionActivity</string>
+    <string name="title_activity_test">TestActivity</string>
 </resources>
