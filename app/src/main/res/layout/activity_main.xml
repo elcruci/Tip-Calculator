@@ -13,7 +13,7 @@
         android:titleTextColor="@android:color/white"
         android:background="@color/colorPrimary"
         android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <RelativeLayout
@@ -27,19 +27,10 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:orientation="horizontal">
-
-            // button and logo here
-            </LinearLayout>
-
-            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:translationY="30dp"
+                android:translationY="50dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -72,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
                 android:orientation="horizontal"
-                android:translationY="30dp">
+                android:translationY="52dp">
 
                 <TextView
                     android:id="@+id/percentageField"
@@ -111,16 +102,16 @@
                     android:layout_weight="0"
                     android:text="Number of People paying:  "
                     android:textSize="20dp"
-                    android:translationX="15dp"
+                    android:translationX="8dp"
                     android:visibility="visible" />
 
                 <Spinner
                     android:id="@+id/numberOfPplSpinner"
                     style="@android:style/Widget.Holo.Light.Spinner"
-                    android:layout_width="138dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="145dp"
+                    android:layout_height="43dp"
                     android:layout_weight="0"
-                    android:translationX="9dp"
+                    android:translationX="0dp"
                     android:translationY="0dp"
                     android:background="@android:drawable/btn_dropdown"
                     android:visibility="visible" />
@@ -129,11 +120,11 @@
             <Button
                 android:id="@+id/summaryButton"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="30dp"
                 android:layout_weight="1"
                 android:text="Calculate >"
                 android:translationX="13dp"
-                android:translationY="-55dp"
+                android:translationY="-30dp"
                 android:textSize="25dp"
                 />
         </LinearLayout>

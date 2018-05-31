@@ -1,33 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingsActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        <LinearLayout
+            android:id="@+id/verticalLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:translationY="20dp"
+                android:orientation="horizontal">
 
-    </android.support.design.widget.AppBarLayout>
+                <TextView
+                    android:id="@+id/currencyField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Currency :"
+                    android:textSize="30dp"
+                    android:translationX="14dp"
+                    android:translationY="87dp"
+                    android:visibility="visible" />
 
-    <include layout="@layout/content_settings" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:translationX="0dp"
+                    android:translationY="50dp">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:translationX="20dp">
 
-</android.support.design.widget.CoordinatorLayout>
+                        <TextView
+                            android:id="@+id/dollar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="$"
+                            android:textSize="30dp"
+                            android:translationX="0dp"
+                            android:translationY="0dp" />
+
+                        <TextView
+                            android:id="@+id/euro"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="€"
+                            android:textSize="30dp"
+                            android:translationX="0dp"
+                            android:translationY="0dp" />
+
+                        <TextView
+                            android:id="@+id/pound"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="£"
+                            android:textSize="30dp"
+                            android:translationX="0dp"
+                            android:translationY="0dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:translationX="-40dp"
+                        android:translationY="0dp">
+                        <RadioGroup
+                            android:id="@+id/radioGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2" >
+                        <RadioButton
+                            android:id="@+id/dollarRButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:translationX="0dp"
+                            android:translationY="0dp" />
+
+                        <RadioButton
+                            android:id="@+id/euroRButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:translationX="0dp"
+                            android:translationY="0dp" />
+
+                        <RadioButton
+                            android:id="@+id/poundRButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:translationX="0dp"
+                            android:translationY="0dp" />
+                        </RadioGroup>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:orientation="horizontal"
+                android:translationY="70dp">
+
+                <TextView
+                    android:id="@+id/percentageField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Tip Percentage (%) :  "
+                    android:textSize="30dp"
+                    android:translationX="15dp"
+                    android:visibility="visible" />
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="    Tip"
+                    android:translationY="-3dp"
+
+                    android:inputType="text|numberDecimal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="25dp"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/infoButton"
+                android:layout_width="50dp"
+                android:layout_height="0dp"
+                android:translationY="-120dp"
+                android:translationX="15dp"
+
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_question_mark_flag" />
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="360dp"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                android:text="Save"
+                android:textSize="25dp"
+                android:translationX="13dp"
+                android:translationY="-30dp"
+                android:textColor="#000000"/>
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="240dp"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                android:text="   Cancel"
+                android:translationX="76dp"
+                android:translationY="-30dp"
+                android:textSize="25dp"
+                android:textColor="#000000"
+                />
+        </LinearLayout>
+</android.support.constraint.ConstraintLayout>

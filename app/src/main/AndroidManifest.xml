@@ -16,18 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings"
-            android:theme="@style/AppBaseTheme" />
-        <activity
-            android:name=".SummaryActivity"
-            android:label="@string/title_activity_summary"
-            android:theme="@style/AppBaseTheme" />
-        <activity
-            android:name=".SuggestionActivity"
-            android:label="@string/title_activity_suggestion"
-            android:theme="@style/AppBaseTheme" />
+        <activity android:name=".SuggestionActivity" android:label="Tip Suggestion" />
+        <activity android:name=".SummaryActivity" />
+        <activity android:name=".SettingsActivity" android:label="Settings"></activity>
     </application>
 
 </manifest>

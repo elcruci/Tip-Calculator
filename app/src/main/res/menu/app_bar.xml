@@ -10,4 +10,12 @@
         app:showAsAction="never"
         android:title="Settings" />
 
+    <item
+        android:id="@+id/suggest"
+        android:icon="@drawable/ic_poll_black_30dp"
+        app:showAsAction="never"
+        android:title="Suggest Tip" />
+
+
+
 </menu>
