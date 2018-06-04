@@ -10,28 +10,32 @@ public class Data extends Application {
     //setters:
     //((Data) this.getApplication()).set%VariableName%(%VariableName%);
 
-    public static double percentage;
-    public static String currency=""; //  $  or  €  or  £
-    public static int numberOfPpl;
+    private static double percentage=10.0;
+    private static String currency="$"; //  $  or  €  or  £
+    private static boolean savePercentage=true;
+
 
     public static void setPercentage(double percentage){
         Data.percentage=percentage;
     }
 
-    public static void setCurreny(String currency){
+    public static void setCurrency(String currency){
         Data.currency=currency;
     }
+
+    public static void setSavePercentage(boolean choice){ savePercentage=choice;}
+
+
 
     public static double getPercentage(){
         return percentage;
     }
 
-    public static String getCurreny(){
+    public static String getCurrency(){
         return currency;
     }
 
-    public static void setNumberOfPpl(int numberOfPpl){ Data.numberOfPpl=numberOfPpl;}
+    public static boolean savePercentage(){return savePercentage;}
 
-    public static int getNumberOfPpl(){return Data.numberOfPpl;}
 
 }

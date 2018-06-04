@@ -7,8 +7,19 @@
     tools:context=".SuggestionActivity">
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:titleTextColor="@android:color/white"
+            android:background="@color/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +32,8 @@
                 android:layout_height="600dp"
                 android:layout_weight="1"
                 android:text="Not sure how much you want to tip?"
-                android:textSize="30dp"
+                android:textSize="25dp"
+                android:translationY="80dp"
                 android:translationX="5dp"/>
 
             <TextView
@@ -31,7 +43,7 @@
                 android:layout_weight="1"
                 android:text="No problem! Rate your experience below and we'll suggest a percentage for you!"
                 android:textSize="20dp"
-                android:translationY="10dp"
+                android:translationY="40dp"
                 android:translationX="5dp"/>
 
             <LinearLayout

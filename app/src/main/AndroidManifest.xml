@@ -16,9 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SuggestionActivity" android:label="Tip Suggestion" />
+        <activity android:name=".SuggestionActivity" android:label="Tip Calculator-Tip Suggestion" />
         <activity android:name=".SummaryActivity" />
-        <activity android:name=".SettingsActivity" android:label="Settings"></activity>
+        <activity android:name=".SettingsActivity" android:label="Tip Calculator-Settings"></activity>
     </application>
 
 </manifest>

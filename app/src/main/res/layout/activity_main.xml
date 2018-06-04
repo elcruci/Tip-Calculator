@@ -18,7 +18,11 @@
 
     <RelativeLayout
         android:layout_width="373dp"
-        android:layout_height="561dp">
+        android:id="@+id/mainLayout"
+        android:layout_height="561dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <LinearLayout
             android:id="@+id/verticalLayout"
@@ -29,7 +33,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:translationY="50dp"
                 android:orientation="horizontal">
 
@@ -39,52 +43,57 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="Bill ($) : "
-                    android:textSize="30dp"
+                    android:textSize="25dp"
                     android:translationX="15dp"
                     android:translationY="40dp"
                     android:visibility="visible" />
 
                 <android.support.design.widget.TextInputEditText
-                    android:layout_width="260dp"
+                    android:id="@+id/billEdit"
+                    android:layout_width="288dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:hint="        Amount Due"
+                    android:hint="             Amount Due"
                     android:inputType="text|numberDecimal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textSize="25dp"
-
+                    android:textSize="20dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:translationX="10dp"
                     android:translationY="31dp"
                     android:visibility="visible" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
+                android:layout_weight="5"
                 android:orientation="horizontal"
                 android:translationY="52dp">
 
                 <TextView
-                    android:id="@+id/percentageField"
+                    android:id="@+id/tipField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:text="Tip Percentage (%) :  "
-                    android:textSize="30dp"
+                    android:textSize="25dp"
                     android:translationX="15dp"
                     android:visibility="visible" />
 
                 <android.support.design.widget.TextInputEditText
-                    android:layout_width="90dp"
+                    android:id="@+id/tipEdit"
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:hint="    Tip"
+                    android:hint="          Tip"
                     android:translationY="-3dp"
-
+                    android:translationX="0dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:inputType="text|numberDecimal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textSize="25dp"
+                    android:textSize="20dp"
                     android:visibility="visible" />
 
             </LinearLayout>
@@ -100,25 +109,29 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    android:text="Number of People paying:  "
-                    android:textSize="20dp"
-                    android:translationX="8dp"
+                    android:text="Number of People Paying:  "
+                    android:textSize="25dp"
+                    android:translationX="15dp"
                     android:visibility="visible" />
 
-                <Spinner
-                    android:id="@+id/numberOfPplSpinner"
-                    style="@android:style/Widget.Holo.Light.Spinner"
-                    android:layout_width="145dp"
-                    android:layout_height="43dp"
-                    android:layout_weight="0"
-                    android:translationX="0dp"
-                    android:translationY="0dp"
-                    android:background="@android:drawable/btn_dropdown"
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/numberOfPplEdit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint=""
+                    android:translationY="-3dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:inputType="text|number"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="20dp"
                     android:visibility="visible" />
+
             </LinearLayout>
 
             <Button
-                android:id="@+id/summaryButton"
+                android:id="@+id/calcButton"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_weight="1"
