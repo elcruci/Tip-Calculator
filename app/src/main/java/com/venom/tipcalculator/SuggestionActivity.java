@@ -1,7 +1,9 @@
 package com.venom.tipcalculator;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.widget.RatingBar;
@@ -18,13 +20,8 @@ public class SuggestionActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggestion);
-        RatingBar mBar = (RatingBar) findViewById(R.id.ratingBar);
-        mBar.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                RatingBar bar = (RatingBar) v;
-                //bar.getRating()
-            }
-        });
+        setSupportActionBar((Toolbar) findViewById(R.id.my_toolbar));
+        getSupportActionBar().setTitle("Tip Calculator - Suggest Tip");
         //getSupportActionBar().setTitle("Tip Calculator-Summary");
     }
 
@@ -32,7 +29,19 @@ public class SuggestionActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.calcButton:{
+            case R.id.suggestButton:{
+                RatingBar mBar = (RatingBar) findViewById(R.id.ratingBar);
+                int rating = (int) mBar.getRating();
+
+                Intent data = new Intent();
+                data.putExtra("suggestedTip", "Based on your rating, we suggest a tip percentage of : "+new Integer(10+(rating*2)).toString()+"%");
+                setResult(RESULT_OK, data);
+                finish();
+                break;
+            }
+            case R.id.cancelButton:{
+                setResult(RESULT_CANCELED,null);
+                finish();
                 break;
             }
         }

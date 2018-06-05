@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
+    private int SUGGEST_CODE=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,9 +51,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.i("Resume","successfully in the onResume method");
         super.onResume();
 
-        ((TextView)findViewById(R.id.billField)).setText("Bill ("+(Data.getCurrency()+") : "));
         if(Data.savePercentage()){
-            ((EditText)findViewById(R.id.percentageEdit)).setText((new Double(Data.getPercentage())).toString(),TextView.BufferType.EDITABLE);
+            ((EditText)findViewById(R.id.tipEdit)).setText((new Double(Data.getPercentage())).toString(),TextView.BufferType.EDITABLE);
+            Data.setSavePercentage(false);
+        }
+        if(Data.saveCurrency()){
+            ((TextView)findViewById(R.id.billField)).setText("Bill ("+(Data.getCurrency()+") : "));
+            Data.setSaveCurrency(false);
         }
         Log.i("Share","data fetched into onResume");
     }
@@ -90,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.suggest:{
                 // start settings activity
                 Intent intent = new Intent(this, SuggestionActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,SUGGEST_CODE);
                 return true;
             }
             default:
@@ -98,7 +102,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return false;
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK && requestCode == SUGGEST_CODE) {
+            if (data.hasExtra("suggestedTip")) {
+                Toast.makeText(this, data.getExtras().getString("suggestedTip"),
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
     @Override
     public void onClick(View view) {

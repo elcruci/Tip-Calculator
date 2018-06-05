@@ -85,7 +85,7 @@
                 android:orientation="vertical"></LinearLayout>
 
                 <Button
-                    android:id="@+id/saveButton"
+                    android:id="@+id/suggestButton"
                     android:layout_width="360dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
