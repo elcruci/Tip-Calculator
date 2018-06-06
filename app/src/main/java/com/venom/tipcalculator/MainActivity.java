@@ -1,6 +1,7 @@
 package com.venom.tipcalculator;
 
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.menu.MenuBuilder;
@@ -21,12 +22,16 @@ import android.widget.Toast;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
+import static java.lang.Thread.sleep;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private int SUGGEST_CODE=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //leave this for now, it's the # of ppl spinner implementation, I still think this is a better idea so might use for future
         /*
         Spinner numberOfPPL1 = (Spinner) findViewById(R.id.numberOfPplSpinner);
         ArrayList<String> list  = new ArrayList<String>();
@@ -106,8 +111,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == SUGGEST_CODE) {
             if (data.hasExtra("suggestedTip")) {
-                Toast.makeText(this, data.getExtras().getString("suggestedTip"),
-                        Toast.LENGTH_SHORT).show();
+                for(int i = 0; i<2; i++){ //Show Toast for 7 seconds
+                    Toast.makeText(this, data.getExtras().getString("suggestedTip"),
+                            Toast.LENGTH_LONG).show();
+                }
             }
         }
     }
@@ -199,17 +206,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 // only positive numbers and proper bounds after this point :)
 
+
+
+                //floating point checks (only for bill field)
+                try{
+                    int digitCounter=0;
+                    boolean hitFloatPoint=false;
+                    for (int i = 0; i< billString.length();i++){
+                        if(hitFloatPoint) if(digitCounter++>2) throw new IllegalArgumentException("Bill field");
+                        if(billString.charAt(i)=='.') hitFloatPoint=true;
+                    }
+
+                } catch (IllegalArgumentException argEX) {
+                    if (argEX.getMessage().equals("Bill field")){
+                        //Toast.makeText(getApplicationContext(), "Amount Due is invalid", Toast.LENGTH_LONG);
+                        billEdit.requestFocus();
+                        billEdit.setError("There can only be two digits after floating point");
+                        break;
+                    }
+                }
+                //bill field has a valid number of digits after floating point (if there's a floating point) after this point :)
+
+
                 //safe to perform operations after this point :)
 
                 double finalBill = Double.parseDouble(billString);
                 double finalTip = Double.parseDouble(tipString);
                 int finalNumPpl = Integer.parseInt(pplString);
 
+
                 Intent intent = new Intent(this, SummaryActivity.class);
-                intent.putExtra("bill",finalBill);
-                intent.putExtra("tip",finalTip);
-                intent.putExtra("number of people",finalNumPpl);
-                //also have to add currency, when settings activity is complete
+
+                Bundle bundle = new Bundle();
+                bundle.putDouble("bill",finalBill);
+                bundle.putDouble("tip",finalTip);
+                bundle.putInt("number of people",finalNumPpl);
+                bundle.putString("currency",Data.getCurrency());
+
+                intent.putExtras(bundle);
 
                 //final screen :)
                 startActivity(intent);
