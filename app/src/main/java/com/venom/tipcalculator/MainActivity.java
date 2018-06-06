@@ -213,7 +213,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     int digitCounter=0;
                     boolean hitFloatPoint=false;
                     for (int i = 0; i< billString.length();i++){
-                        if(hitFloatPoint) if(digitCounter++>2) throw new IllegalArgumentException("Bill field");
+                        //if(hitFloatPoint) if(digitCounter++>2) throw new IllegalArgumentException("Bill field");
+                        if(hitFloatPoint){
+                            digitCounter++;
+                            if(digitCounter>2){
+                                throw new IllegalArgumentException("Bill field");
+                            }
+                        }
                         if(billString.charAt(i)=='.') hitFloatPoint=true;
                     }
 
