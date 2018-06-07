@@ -85,6 +85,8 @@
                             android:translationY="0dp" />
                     </LinearLayout>
 
+
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -126,6 +128,11 @@
                         </RadioGroup>
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"></LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -160,6 +167,8 @@
                     android:visibility="visible" />
             </LinearLayout>
 
+
+
             <TextView
                 android:id="@+id/hint"
                 android:layout_width="wrap_content"
@@ -173,27 +182,35 @@
                 android:textColor="#292929"
                 android:textStyle="italic"/>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"></LinearLayout>
+
             <Button
                 android:id="@+id/saveButton"
                 android:layout_width="360dp"
-                android:layout_height="10dp"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="Save"
+                android:text=" Save "
                 android:textSize="25dp"
                 android:translationX="13dp"
                 android:translationY="-30dp"
-                android:textColor="#000000"/>
+                android:textColor="#fff"
+                android:background="@color/colorPrimary"/>
 
             <Button
                 android:id="@+id/cancelButton"
-                android:layout_width="240dp"
-                android:layout_height="10dp"
+                android:layout_width="360dp"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="   Cancel"
-                android:translationX="76dp"
-                android:translationY="-30dp"
+                android:text=" Cancel"
+                android:translationX="13dp"
+                android:translationY="-18dp"
                 android:textSize="25dp"
-                android:textColor="#000000"
+                android:textColor="#fff"
+                android:background="#f71811"
                 />
         </LinearLayout>
 </android.support.constraint.ConstraintLayout>

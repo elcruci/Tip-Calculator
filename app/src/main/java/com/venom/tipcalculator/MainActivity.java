@@ -26,6 +26,9 @@ import static java.lang.Thread.sleep;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private int SUGGEST_CODE=0;
+    String currentBill;
+    String currentTip;
+    String currentNumPpl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +52,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         findViewById(R.id.calcButton).setOnClickListener(this);
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        currentBill= ((EditText) findViewById(R.id.billEdit)).getText().toString();
+        currentTip = ((EditText) findViewById(R.id.tipEdit)).getText().toString();
+        currentNumPpl = ((EditText) findViewById(R.id.numberOfPplEdit)).getText().toString();
+    }
+
+
+    @Override
+    public void onRestart(){
+        super.onRestart();
+        ((EditText) findViewById(R.id.billEdit)).setText(currentBill);
+        ((EditText) findViewById(R.id.tipEdit)).setText(currentTip);
+        ((EditText) findViewById(R.id.numberOfPplEdit)).setText(currentNumPpl);
     }
 
     @Override
@@ -111,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == SUGGEST_CODE) {
             if (data.hasExtra("suggestedTip")) {
-                for(int i = 0; i<2; i++){ //Show Toast for 7 seconds
+                for(int i = 0; i<3; i++){ //Show Toast for 10.5 seconds
                     Toast.makeText(this, data.getExtras().getString("suggestedTip"),
                             Toast.LENGTH_LONG).show();
                 }

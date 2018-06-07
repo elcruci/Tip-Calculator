@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
@@ -55,11 +57,27 @@ public class SummaryActivity extends AppCompatActivity{
         //Fifth field:
         double totalPerPerson=new Double(df.format(total/numPpl)).doubleValue();
 
-        ((TextView)findViewById(R.id.bill)).setText("Bill : "+currency+bill);
-        ((TextView)findViewById(R.id.tip)).setText("Tip : "+currency+tipValue);
-        ((TextView)findViewById(R.id.total)).setText("Total : "+currency+total);
-        ((TextView)findViewById(R.id.tipPerPerson)).setText("Tip/Person : "+currency+tipPerPerson);
-        ((TextView)findViewById(R.id.totalPerPerson)).setText("Total/Person : "+currency+totalPerPerson);
+        SpannableString ss1=  new SpannableString("Bill : "+currency+bill);
+        ss1.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0,6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        SpannableString ss2=  new SpannableString("Tip : "+currency+tipValue);
+        ss2.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0,5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        SpannableString ss3=  new SpannableString("Total : "+currency+total);
+        ss3.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0,7, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        SpannableString ss4=  new SpannableString("Tip/Person : "+currency+tipPerPerson);
+        ss4.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0,12, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        SpannableString ss5=  new SpannableString("Total/Person : "+currency+totalPerPerson);
+        ss5.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0,14, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+
+        ((TextView)findViewById(R.id.bill)).setText(ss1);
+        ((TextView)findViewById(R.id.tip)).setText(ss2);
+        ((TextView)findViewById(R.id.total)).setText(ss3);
+        ((TextView)findViewById(R.id.tipPerPerson)).setText(ss4);
+        ((TextView)findViewById(R.id.totalPerPerson)).setText(ss5);
     }
 
 

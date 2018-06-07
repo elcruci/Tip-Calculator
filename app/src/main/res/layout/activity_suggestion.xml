@@ -28,23 +28,27 @@
 
             <TextView
                 android:id="@+id/header"
-                android:layout_width="match_parent"
+                android:layout_width="360dp"
                 android:layout_height="600dp"
                 android:layout_weight="1"
                 android:text="Not sure how much you want to tip?"
-                android:textSize="25dp"
+                android:textSize="22dp"
                 android:translationY="80dp"
-                android:translationX="5dp"/>
+                android:translationX="13dp"
+                android:textStyle="bold"
+                android:gravity="center_horizontal"/>
 
             <TextView
                 android:id="@+id/paragraph"
-                android:layout_width="match_parent"
+                android:layout_width="360dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="No problem! Rate your experience below and we'll suggest a percentage for you!"
-                android:textSize="20dp"
-                android:translationY="40dp"
-                android:translationX="5dp"/>
+                android:textSize="17dp"
+                android:translationY="10dp"
+                android:translationX="13dp"
+                android:textStyle="italic"
+                android:gravity="center_horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -84,29 +88,32 @@
                 android:layout_weight="1"
                 android:orientation="vertical"></LinearLayout>
 
+
                 <Button
                     android:id="@+id/suggestButton"
                     android:layout_width="360dp"
                     android:layout_height="match_parent"
                     android:onClick="onClick"
                     android:layout_weight="1"
-                    android:text="Suggest!"
+                    android:text=" Suggest!"
                     android:textSize="25dp"
                     android:translationX="13dp"
-                    android:translationY="-30dp"
-                    android:textColor="#000000"/>
+                    android:translationY="-7dp"
+                    android:textColor="#fff"
+                    android:background="@color/colorPrimary"/>
 
                 <Button
                     android:id="@+id/cancelButton"
-                    android:layout_width="240dp"
+                    android:layout_width="360dp"
                     android:layout_height="match_parent"
                     android:onClick="onClick"
                     android:layout_weight="1"
-                    android:text="   Cancel"
-                    android:translationX="76dp"
-                    android:translationY="-30dp"
+                    android:text="  Cancel"
+                    android:translationX="13dp"
+                    android:translationY="5dp"
                     android:textSize="25dp"
-                    android:textColor="#000000" />
+                    android:textColor="#fff"
+                    android:background="#f71811"/>
 
         </LinearLayout>
 

@@ -93,7 +93,27 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             case R.id.saveButton:{
 
                 //check to see if percentage should be changed
-                String laterPercentage = ((EditText)findViewById(R.id.percentageEdit)).getText().toString();
+                EditText percentageEdit = (EditText)findViewById(R.id.percentageEdit);
+                String laterPercentage = percentageEdit.getText().toString();
+                if(laterPercentage.equals("")){
+                    percentageEdit.requestFocus();
+                    percentageEdit.setError("Please fill out.");
+                    break;
+                }
+                try{
+                    if (Double.parseDouble(laterPercentage)< 0.0 || Double.parseDouble(laterPercentage)>100.0) throw new IllegalArgumentException();
+                } catch (NumberFormatException numEX) {
+                    percentageEdit.requestFocus();
+                    percentageEdit.setError("Only Numbers (No special characters or spaces) allowed in the Percentage field.");
+                    break;
+                } catch(IllegalArgumentException argEX) {
+                    percentageEdit.requestFocus();
+                    percentageEdit.setError("Percentage should be between 0.1 and 100");
+                    break;
+                }
+                //later percentage is a valid percentage after this point :)
+
+
                 if(laterPercentage.equals(initialPercentage)){
                     Data.setSavePercentage(false);
                 } else {
